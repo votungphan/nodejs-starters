@@ -5,7 +5,7 @@ module.exports = {
       es2021: true,
       node: true,
    },
-   extends: ['airbnb-base', 'prettier'],
+   extends: ['airbnb-base', 'airbnb-typescript/base', 'prettier'],
    parser: 'eslint-multiple-parsers', // REF: alternative overrides (https://github.com/techatpark/npm-scripts-static-ref/blob/main/.eslintrc.js)
    parserOptions: {
       ecmaVersion: 2021,

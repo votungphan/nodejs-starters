@@ -23,7 +23,8 @@
       "etajs",
       "fullhash",
       "happypack",
-      "lcov"
+      "lcov",
+      "prettierrc"
    ],
    "cSpell.ignorePaths": [
       "**/package-lock.json",

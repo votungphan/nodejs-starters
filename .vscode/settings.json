@@ -23,6 +23,7 @@
       "etajs",
       "fullhash",
       "happypack",
+      "jsxdev",
       "lcov",
       "prettierrc"
    ],

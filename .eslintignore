@@ -110,3 +110,10 @@ build
 # Addional files
 tmp
 bak
+
+src/lib/
+src/public/
+src/types/
+src/assets/
+
+.vscode

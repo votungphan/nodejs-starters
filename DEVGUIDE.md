@@ -223,4 +223,5 @@ Following is a summary of great tutorial resources:
 -  [Node.js from Scratch to Production](https://github.com/losikov/api-example)
 -  [TypeScript Node Starter](https://github.com/microsoft/TypeScript-Node-Starter)
 -  [Hackathon Starter](https://github.com/sahat/hackathon-starter)
+-  [GeekyAnts Starter](https://github.com/GeekyAnts/express-typescript)
 -  [Best Practices for Rest API](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/)

@@ -1,12 +1,13 @@
-import app from './app';
-
+/* eslint-disable no-console */
+/* eslint import/no-extraneous-dependencies: ["error", {"peerDependencies": true}] */
 import browserSync from 'browser-sync';
+import app from './app';
 
 app.set('port', 3000);
 
 const server = app.listen(app.get('port'), () => {
    browserSync({
-      proxy: 'localhost:' + app.get('port'),
+      proxy: `localhost:${app.get('port')}`,
       files: ['./src/**.*'],
    });
    console.log(

@@ -253,6 +253,7 @@ Following tools are in the todo list:
 -  [Swagger or OpenAPI](https://swagger.io/specification/)
 -  [Mocha](https://mochajs.org/)
 -  [Awesome Jest](https://github.com/jest-community/awesome-jest)
+-  [Testing](https://spin.atomicobject.com/2020/04/22/jest-test-express-react/)
 
 ## Tutorials
 

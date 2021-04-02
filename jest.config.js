@@ -28,11 +28,7 @@ module.exports = {
          {
             resultDir: 'reports/jest-stare',
             reportTitle: 'jest-stare!',
-            additionalResultsProcessors: [
-               'jest-junit',
-               './node_modules/jest-junit',
-               './node_modules/jest-html-reports',
-            ],
+            additionalResultsProcessors: ['jest-junit', 'jest-html-reports'],
             coverageLink: '../jest/lcov-report/index.html',
             jestStareConfigJson: 'jest-stare.json',
             jestGlobalConfigJson: 'globalStuff.json',

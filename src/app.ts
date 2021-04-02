@@ -1,10 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import express from 'express';
 
+// Controllers route handlers
+import * as homeController from './controllers/home';
+
 const app = express();
 
-app.get('/', (req, res) => {
-   res.send('From Express App: Hello, World!');
-});
+app.get('/', homeController.default);
 
 export default app;

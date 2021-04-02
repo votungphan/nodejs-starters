@@ -77,9 +77,32 @@ module.exports = {
 ```javascript
 // ESLint configuration file .eslintrc.js
 module.exports = {
-   extends: ['airbnb-base', 'airbnb-typescript/base', 'prettier'],
-   plugins: ['@babel', '@typescript-eslint', 'prettier'],
-   // Other configuration
+   extends: [
+      'eslint:recommended',
+      'airbnb-base',
+      'plugin:prettier/recommended',
+   ],
+   plugins: ['prettier'],
+   overrides: [
+      {
+         files: ['**.js'],
+         parser: '@babel/eslint-parser',
+         plugins: ['@babel', 'prettier'],
+      },
+      {
+         files: ['**.ts'],
+         parser: '@typescript-eslint/parser',
+         extends: [
+            'airbnb-typescript/base',
+            'plugin:@typescript-eslint/recommended',
+            'plugin:prettier/recommended',
+         ],
+         plugins: ['@typescript-eslint', 'prettier'],
+         parserOptions: {
+            project: './tsconfig.json',
+         },
+      },
+   ],
 };
 ```
 
@@ -199,6 +222,28 @@ npm install browser-sync @types/browser-sync --save-dev
 npm run watch-ts
 ```
 
+-  Enable Jest and Supertest for testing
+
+```typescript
+// test/jest/home.test.ts to test the home page
+import request from 'supertest';
+import app from '../../src/app';
+
+describe('GET /', () => {
+   it('should return 200 OK', (done) => {
+      request(app).get('/').expect(200, done);
+   });
+});
+```
+
+```bash
+npm install jest ts-jest @types/jest supertest @types/supertest --save-dev
+# Initialize a jest.config.js then update to support TypeScript
+npx jest --init
+# Add "test:jest": "npx jest --forceExit --coverage --verbose"
+npm run test:jest
+```
+
 ## Additional tools
 
 Following tools are in the todo list:
@@ -207,6 +252,7 @@ Following tools are in the todo list:
 -  [Husky](https://typicode.github.io/husky/#/)
 -  [Swagger or OpenAPI](https://swagger.io/specification/)
 -  [Mocha](https://mochajs.org/)
+-  [Awesome Jest](https://github.com/jest-community/awesome-jest)
 
 ## Tutorials
 

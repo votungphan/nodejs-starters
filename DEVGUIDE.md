@@ -53,7 +53,7 @@ npx tsc --init
 
 ```bash
 # Install ESLint and useful modules
-npm install eslint eslint-multiple-parsers eslint-plugin-import --save-dev
+npm install eslint eslint-plugin-import --save-dev
 npm install eslint-config-airbnb-base eslint-config-airbnb-typescript --save-dev
 # Install Prettier and ESLint integration
 npm install prettier eslint-plugin-prettier eslint-config-prettier --save-dev
@@ -77,7 +77,6 @@ module.exports = {
 ```javascript
 // ESLint configuration file .eslintrc.js
 module.exports = {
-   parser: 'eslint-multiple-parsers',
    extends: ['airbnb-base', 'airbnb-typescript/base', 'prettier'],
    plugins: ['@babel', '@typescript-eslint', 'prettier'],
    // Other configuration
@@ -90,7 +89,7 @@ module.exports = {
 # Install Babel and useful plugins
 npm install @babel/core @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread --save-dev
 # Enable TypeScript support
-npm install @babel/preset-env @babel/preset-typescript --save-dev
+npm install @babel/preset-env --save-dev
 # Integrate into ESLint, Airbnb
 npm install babel-preset-airbnb @babel/eslint-parser @babel/eslint-plugin --save-dev
 ```
@@ -98,7 +97,7 @@ npm install babel-preset-airbnb @babel/eslint-parser @babel/eslint-plugin --save
 ```javascript
 // Minimal Babel javascript configuration file (.babelrc.js)
 module.exports = {
-   presets: ['airbnb', '@babel/preset-env', '@babel/preset-typescript'],
+   presets: ['airbnb', '@babel/preset-env'],
    plugins: [
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-object-rest-spread',

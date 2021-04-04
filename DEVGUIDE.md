@@ -11,13 +11,12 @@ The default Node.js Starter Kit is with following selected tools:
 -  [Airbnb](https://github.com/airbnb/javascript) style guide
 -  [Prettier](https://prettier.io/docs/en/integrating-with-linters.html) code formatter
 -  [Babel](https://babeljs.io/blog/2020/07/13/the-state-of-babel-eslint) JavaScript compiler
--  [dotenv](https://www.npmjs.com/package/dotenv-safe) or [dotenv-safe](https://www.npmjs.com/package/dotenv-safe) module to load environment variables
+-  [pino](https://github.com/pinojs/pino) for logging
+-  [dotenv-safe](https://www.npmjs.com/package/dotenv-safe) for environment variables
 -  [Bootstrap](https://getbootstrap.com/) front-end framework
 -  [Eta](https://eta.js.org/) template engine
 -  [Nodemon](https://nodemon.io/) tool to restart node app automatically
 -  [Browsersync](https://browsersync.io/) tool to synchronize browser
--  ExpressJS [ErrorHandler](https://github.com/expressjs/errorhandler) middleware for the full error stack traces
--  [NodeNotifier](https://github.com/mikaelbr/node-notifier) for sending cross platform native notification
 -  [Jest](https://jestjs.io/) JavaScript Testing Framework
 -  [SuperTest](https://github.com/visionmedia/supertest) for testing HTTP
 
@@ -265,6 +264,48 @@ const logger = pinoms({ streams, level: logLevel });
 export default logger;
 ```
 
+-  Enable Bootstrap 5 and Eta template engine
+
+```bash
+# Install Eta template engine
+npm install eta --save-prod
+
+# Download Bootstrap 5 starter to update as below
+src/views/
+├── home/
+│   ├── home.css
+│   └── home.eta
+└── partials/
+    ├── footer.eta
+    ├── head.eta
+    ├── header.eta
+    └── layout.eta
+```
+
+```typescript
+// Update the Home page controller: src/controllers/home.ts
+const home = (req: Request, res: Response): unknown => {
+   return res
+      .status(200)
+      .set('cache-control', 'no-store')
+      .render('home/home', etaVariables);
+};
+```
+
+```typescript
+// Update the Express app to enable Eta: src/app.ts
+import * as eta from 'eta';
+
+// Configure where to look for the app views (.eta files)
+app.set('views', resolvePath(process.cwd(), 'src/views'));
+
+// Register Eta as the app engine
+app.engine('.eta', eta.renderFileAsync);
+
+// Register the .eta file as the app view engine
+app.set('view engine', 'eta');
+```
+
 ## Additional tools
 
 Following tools are in the todo list:
@@ -277,6 +318,8 @@ Following tools are in the todo list:
 -  [Testing](https://spin.atomicobject.com/2020/04/22/jest-test-express-react/)
 -  [Package Health Score](https://snyk.io/advisor/npm-package/pino)
 -  [Package Trend and Stats](https://www.npmtrends.com/pino-vs-winston)
+-  ExpressJS [ErrorHandler](https://github.com/expressjs/errorhandler) middleware for the full error stack traces
+-  [NodeNotifier](https://github.com/mikaelbr/node-notifier) for sending cross platform native notification
 
 ## Tutorials
 

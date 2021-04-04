@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import { existsSync, mkdirSync, createWriteStream } from 'fs';
+import { resolve as resolvePath } from 'path';
 import pinoms from 'pino-multi-stream';
 
 /*
@@ -10,9 +10,9 @@ import pinoms from 'pino-multi-stream';
 const logLevel = process.env.NODE_ENV === 'production' ? 'error' : 'debug';
 
 // Resolve the log directory under root directory of the application
-const logDir = path.resolve(process.cwd(), 'logs');
-if (!fs.existsSync(logDir)) {
-   fs.mkdirSync(logDir);
+const logDir = resolvePath(process.cwd(), 'logs');
+if (!existsSync(logDir)) {
+   mkdirSync(logDir);
 }
 
 /*
@@ -22,7 +22,7 @@ if (!fs.existsSync(logDir)) {
 const streams: pinoms.Streams = [
    { stream: pinoms.prettyStream() },
    {
-      stream: fs.createWriteStream(path.resolve(logDir, 'logger.log'), {
+      stream: createWriteStream(resolvePath(logDir, 'logger.log'), {
          flags: 'a',
       }),
    },

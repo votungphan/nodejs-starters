@@ -244,6 +244,27 @@ npx jest --init
 npm run test:jest
 ```
 
+-  Implement a simple logger for logging and removing the eslint no-console failures:
+
+```bash
+# Install required packages
+npm install pino-pretty pino-multi-stream @types/pino-multi-stream --save-prod
+```
+
+```typescript
+// file: src/util/logger.ts
+import fs from 'fs';
+import pinoms from 'pino-multi-stream';
+
+const streams: pinoms.Streams = [
+   { stream: pinoms.prettyStream() },
+   { stream: fs.createWriteStream('logger.log', { flags: 'a' }) },
+];
+const logger = pinoms({ streams, level: logLevel });
+
+export default logger;
+```
+
 ## Additional tools
 
 Following tools are in the todo list:
@@ -254,6 +275,8 @@ Following tools are in the todo list:
 -  [Mocha](https://mochajs.org/)
 -  [Awesome Jest](https://github.com/jest-community/awesome-jest)
 -  [Testing](https://spin.atomicobject.com/2020/04/22/jest-test-express-react/)
+-  [Package Health Score](https://snyk.io/advisor/npm-package/pino)
+-  [Package Trend and Stats](https://www.npmtrends.com/pino-vs-winston)
 
 ## Tutorials
 
@@ -271,3 +294,7 @@ Following is a summary of great tutorial resources:
 -  [Hackathon Starter](https://github.com/sahat/hackathon-starter)
 -  [GeekyAnts Starter](https://github.com/GeekyAnts/express-typescript)
 -  [Best Practices for Rest API](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/)
+-  [Node Logging Guide](https://www.twilio.com/blog/guide-node-js-logging)
+-  [Node Logging with Winston](https://www.digitalocean.com/community/tutorials/how-to-use-winston-to-log-node-js-applications)
+-  [Node Logging IBM DEveloper Guide](https://developer.ibm.com/languages/node-js/articles/the-nodejs-debug-module-advanced-usage/)
+-  [Node Logging Structure Guide](https://stackify.com/node-js-logging/)

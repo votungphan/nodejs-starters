@@ -26,6 +26,9 @@
       "happypack",
       "jsxdev",
       "lcov",
+      "multistream",
+      "pino",
+      "pinoms",
       "prettierrc"
    ],
    "cSpell.ignorePaths": [

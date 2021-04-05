@@ -306,6 +306,23 @@ app.engine('.eta', eta.renderFileAsync);
 app.set('view engine', 'eta');
 ```
 
+-  Enable useful middleware for Express app:
+
+```bash
+# Install Error Handler for the fullstack error trace
+# http://expressjs.com/en/resources/middleware/errorhandler.html
+npm install errorhandler @types/errorhandler --save-dev
+```
+
+```typescript
+// Update src/server.ts
+import errorHandler from 'errorhandler';
+import app from './app';
+if (app.get('env') !== 'production') {
+   app.use(errorHandler());
+}
+```
+
 ## Additional tools
 
 Following tools are in the todo list:
@@ -320,6 +337,9 @@ Following tools are in the todo list:
 -  [Package Trend and Stats](https://www.npmtrends.com/pino-vs-winston)
 -  ExpressJS [ErrorHandler](https://github.com/expressjs/errorhandler) middleware for the full error stack traces
 -  [NodeNotifier](https://github.com/mikaelbr/node-notifier) for sending cross platform native notification
+-  [Built-in Express Middleware to skip body-parser](https://dev.to/taylorbeeston/you-probably-don-t-need-body-parser-in-your-express-apps-3nio)
+-  [Built-in middleware function in Express](http://expressjs.com/en/5x/api.html)
+-  [Guide to Redis Caching for NodeJS ExpressJS App](https://livecodestream.dev/post/beginners-guide-to-redis-and-caching-with-nodejs/)
 
 ## Tutorials
 

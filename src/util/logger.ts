@@ -10,6 +10,7 @@ import pinoms from 'pino-multi-stream';
 const logLevel = process.env.NODE_ENV === 'production' ? 'error' : 'debug';
 
 // Resolve the log directory under root directory of the application
+// TODO: log path for the development and the production is different
 const logDir = resolvePath(process.cwd(), 'logs');
 if (!existsSync(logDir)) {
    mkdirSync(logDir);

@@ -1,7 +1,9 @@
 import { resolve as resolvePath } from 'path';
 import express from 'express';
 import * as eta from 'eta';
+
 import logger from './util/logger';
+import session from './util/session';
 
 // Controllers route handlers
 import * as homeController from './controllers/home';
@@ -12,6 +14,9 @@ eta.configure({ cache: false, async: true });
 logger.info('Initialize the Express app');
 const app = express();
 const isProduction = app.get('env') === 'production';
+
+logger.info('Initialize Express app session');
+app.use(session);
 
 logger.info('Configure where to look for the app views');
 app.set('views', resolvePath(process.cwd(), 'src/views'));

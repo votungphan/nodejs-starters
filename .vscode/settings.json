@@ -16,6 +16,7 @@
       "CSEE",
       "Hackathon",
       "Henrique",
+      "MONGODB",
       "Microservices",
       "Phan",
       "Tailwindcss",
@@ -29,7 +30,8 @@
       "multistream",
       "pino",
       "pinoms",
-      "prettierrc"
+      "prettierrc",
+      "resave"
    ],
    "cSpell.ignorePaths": [
       "**/package-lock.json",

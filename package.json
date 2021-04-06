@@ -10,10 +10,10 @@
       "test:jest": "npx jest --forceExit --coverage --verbose",
       "watch:jest": "npx jest --forceExit --coverage --verbose --watch",
       "build:tsc": "npx tsc",
-      "watch:ts": "npx nodemon --config src/config/nodemon.json --inspect src/server.ts",
-      "watch:js": "npm run build:tsc && npx nodemon --config src/config/nodemon.json --inspect dist/server.js",
-      "server:ts": "npx ts-node src/server.ts",
-      "server:js": "npm run build:tsc && node dist/server.js"
+      "watch:ts": "npx cross-env SAFE_ENV=true nodemon --config src/config/nodemon.json --inspect src/server.ts",
+      "watch:js": "npm run build:tsc && npx cross-env SAFE_ENV=true nodemon --config src/config/nodemon.json --inspect dist/server.js",
+      "server:ts": "npx cross-env SAFE_ENV=true ts-node src/server.ts",
+      "server:js": "npm run build:tsc && npx cross-env SAFE_ENV=true node dist/server.js"
    },
    "repository": {
       "type": "git",
@@ -59,6 +59,7 @@
       "@typescript-eslint/parser": "^4.20.0",
       "babel-preset-airbnb": "^5.0.0",
       "browser-sync": "^2.26.14",
+      "cross-env": "^7.0.3",
       "errorhandler": "^1.5.1",
       "eslint": "^7.23.0",
       "eslint-config-airbnb-base": "^14.2.1",

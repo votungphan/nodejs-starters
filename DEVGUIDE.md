@@ -306,12 +306,14 @@ app.engine('.eta', eta.renderFileAsync);
 app.set('view engine', 'eta');
 ```
 
--  Enable useful middleware for Express app:
+-  Enable useful middleware and tools for NodeJS ExpressJS application:
 
 ```bash
 # Install Error Handler for the fullstack error trace
 # http://expressjs.com/en/resources/middleware/errorhandler.html
 npm install errorhandler @types/errorhandler --save-dev
+# Install dotenv and cross-env to manage environment variables
+npm install dotenv cross-env --save-dev
 ```
 
 ```typescript
@@ -321,6 +323,40 @@ import app from './app';
 if (app.get('env') !== 'production') {
    app.use(errorHandler());
 }
+```
+
+```typescript
+// Update src/util/secrets.ts to load the right env
+import dotenv from 'dotenv';
+import { existsSync } from 'fs';
+import { resolve as resolvePath } from 'path';
+import logger from './logger';
+
+const pathSafeENV = resolvePath(process.cwd(), '.env.example');
+const pathProdENV = resolvePath(process.cwd(), '.env');
+const safeENV = existsSync(pathSafeENV);
+const prodENV = existsSync(pathProdENV);
+
+const { SAFE_ENV } = process.env;
+if (!SAFE_ENV && prodENV) {
+   logger.info(
+      'Using .env for the %s mode with SAFE_ENV as %s',
+      ENVIRONMENT,
+      SAFE_ENV,
+   );
+   dotenv.config({ path: pathProdENV });
+} else if (SAFE_ENV && safeENV) {
+   logger.info(
+      'Using .env.example for the %s mode with SAFE_ENV=%s',
+      ENVIRONMENT,
+      SAFE_ENV,
+   );
+   dotenv.config({ path: pathSafeENV });
+} else {
+   logger.info('Neither .env nor .env.example file is specified');
+}
+
+export const { MONGODB_URI } = process.env;
 ```
 
 ## Additional tools

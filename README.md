@@ -106,6 +106,35 @@ src/  # Application source code and data
 └── server.ts
 ```
 
+## Jest Testing
+
+Jest testing is integrated with following great reporters:
+
+-  [jest-junit](https://github.com/jest-community/jest-junit)
+-  [jest-html-reports](https://github.com/Hazyzh/jest-html-reporters)
+-  [jest-stare](https://github.com/dkelosky/jest-stare)
+
+Following is an example to generate a failed report because of missing to specify required environment variables:
+
+```bash
+# This script is without cross-env SAFE_ENV=true specified
+% npm run test:jest
+```
+
+![Sample Jest Test Failed Report](./docs/images/JestTestFailedReport.png)
+
+Following is an example to generate a passed report with a simple fixing by specifying the required environment variables:
+
+```bash
+% npx run cross-env SAFE_ENV=true jest --forceExit --coverage --verbose
+```
+
+![Sample Jest Test Passed Report](./docs/images/JestTestPassedReport.png)
+
+You can find other reports under the **[reports/](./reports/)** folder such as the Coverage report from **Jest-Stare** HTML report (**reports/jest-stare/index.html**) as below:
+
+![Sample Jest Test Coverage Report](docs/images/JestStareCoverage.png)
+
 ## Development Guide
 
 In order to customize the Starter kit to support your specific needs, you might find more details from the **[Step-by-Step Guide](./DEVGUIDE.md)** of this Node.js Web Application Starter kit.

@@ -12,7 +12,7 @@ The default Node.js Starter Kit is with following selected tools:
 -  [Prettier](https://prettier.io/docs/en/integrating-with-linters.html) code formatter
 -  [Babel](https://babeljs.io/blog/2020/07/13/the-state-of-babel-eslint) JavaScript compiler
 -  [pino](https://github.com/pinojs/pino) for logging
--  [dotenv-safe](https://www.npmjs.com/package/dotenv-safe) for environment variables
+-  [dotenv](https://www.npmjs.com/package/dotenv) for environment variables
 -  [Bootstrap](https://getbootstrap.com/) front-end framework
 -  [Eta](https://eta.js.org/) template engine
 -  [Nodemon](https://nodemon.io/) tool to restart node app automatically

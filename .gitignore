@@ -110,3 +110,4 @@ build
 # Addional files
 tmp
 bak
+.DS_Store

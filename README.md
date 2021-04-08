@@ -137,7 +137,7 @@ You can find other reports under the **[reports/](./reports/)** folder such as t
 
 ## Development Guide
 
-In order to customize the Starter kit to support your specific needs, you might find more details from the **[Step-by-Step Guide](./DEVGUIDE.md)** of this Node.js Web Application Starter kit.
+In order to customize the Starter kit to support your specific needs, you might find more details from the **[Step-by-Step Guide](https://github.com/votungphan/nodejs-starters/wiki)** of this Node.js Web Application Starter kit.
 
 ## Todo List
 

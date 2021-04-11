@@ -151,7 +151,9 @@ Following is a list of items that I would like to support in the short term when
 
 ## Issues and Enhancements
 
-Feel free to use or to customize this starter kit for your suite and I'm very appreciate any kind of support to improve this starter kit for being able to help shortening the education to the real world of the web application development. Please provide your feedbacks through <https://github.com/votungphan/nodejs-starters/issues>
+Feel free to use or to customize this starter kit for your suite and I'm very appreciate any kind of support to improve this starter kit for being able to help shortening the education to the real world of the web application development. 
+- Issues: <https://github.com/votungphan/nodejs-starters/issues>
+- Discussion for enhancements: <https://github.com/votungphan/nodejs-starters/discussions>
 
 ## License and Copyright
 
